@@ -45,6 +45,7 @@ export default function Background() {
         </div>
 
         <div className="bg-columns">
+          {/* 시니어의 일상 고민 */}
           <div className="bg-col">
             <div className="col-head">
               <span className="badge red">시니어의 일상 고민</span>
@@ -61,32 +62,39 @@ export default function Background() {
             </div>
           </div>
 
+          {/* 실세가 도와드려요 */}
           <div className="bg-col">
             <div className="col-head">
               <span className="badge green">실세가 도와드려요</span>
               <h3>가볍게, 그러나 꾸준하게 이어지는 연결</h3>
             </div>
 
-            <div className="meeting-img-wrap">
-              <img
-                src="/meeting.png"
-                alt="실세 앱으로 동네 모임에 참여하는 시니어들"
-                className="meeting-img"
-                loading="lazy"
-              />
-              <div className="meeting-img-caption">
-                실세와 함께라면 오늘도 새로운 만남이 시작됩니다.
+            {/* 폰 + 카드 좌우 레이아웃 */}
+            <div className="promise-layout">
+              {/* 폰 목업 */}
+              <div className="promise-phone-wrap">
+                <div className="bg-glow" aria-hidden="true" />
+                <div className="phone">
+                  <div className="phone-screen">
+                    <img
+                      src="/meeting.png"
+                      alt="실세 모임 화면"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-3">
-              {promises.map((it, i) => (
-                <article key={it.title} className="card mini accent">
-                  <span className="mini-num accent">0{i + 1}</span>
-                  <h4>{it.title}</h4>
-                  <p>{it.desc}</p>
-                </article>
-              ))}
+              {/* 카드 목록 */}
+              <div className="promise-cards">
+                {promises.map((it, i) => (
+                  <article key={it.title} className="card mini accent">
+                    <span className="mini-num accent">0{i + 1}</span>
+                    <h4>{it.title}</h4>
+                    <p>{it.desc}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -105,7 +113,7 @@ export default function Background() {
           display: flex;
           align-items: center;
           gap: 12px;
-          margin-bottom: 20px;
+          margin-bottom: 24px;
           flex-wrap: wrap;
         }
         .col-head h3 {
@@ -118,9 +126,10 @@ export default function Background() {
           font-size: 13px;
           font-weight: 700;
         }
-        .badge.red { background: #FEE2E2; color: #B91C1C; }
+        .badge.red  { background: #FEE2E2; color: #B91C1C; }
         .badge.green { background: var(--brand-50); color: var(--brand-700); }
 
+        /* 고민 카드 */
         .grid-3 {
           grid-template-columns: repeat(3, 1fr);
         }
@@ -153,38 +162,45 @@ export default function Background() {
           line-height: 1.65;
         }
 
-        .meeting-img-wrap {
+        /* 폰 + 카드 레이아웃 */
+        .promise-layout {
+          display: grid;
+          grid-template-columns: 260px 1fr;
+          gap: 32px;
+          align-items: center;
+        }
+
+        .promise-phone-wrap {
           position: relative;
-          margin-bottom: 20px;
-          border-radius: var(--r-xl);
-          overflow: hidden;
-          box-shadow: var(--shadow-md);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-        .meeting-img {
-          width: 100%;
-          height: 260px;
-          object-fit: cover;
-          object-position: center;
-          display: block;
-          transition: transform .4s ease;
-        }
-        .meeting-img-wrap:hover .meeting-img {
-          transform: scale(1.03);
-        }
-        .meeting-img-caption {
+        .bg-glow {
           position: absolute;
-          bottom: 0; left: 0; right: 0;
-          padding: 20px 24px 18px;
-          background: linear-gradient(to top, rgba(6, 78, 59, 0.82) 0%, transparent 100%);
-          color: #ffffff;
-          font-size: 15px;
-          font-weight: 600;
-          line-height: 1.5;
+          inset: 0;
+          background: radial-gradient(circle, var(--brand-100), transparent 70%);
+          filter: blur(32px);
+          z-index: 0;
+        }
+        .promise-phone-wrap .phone {
+          position: relative;
+          z-index: 1;
+          width: 240px;
+        }
+
+        .promise-cards {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
         }
 
         @media (max-width: 900px) {
           .grid-3 { grid-template-columns: 1fr; }
-          .meeting-img { height: 200px; }
+          .promise-layout {
+            grid-template-columns: 1fr;
+          }
+          .promise-phone-wrap .phone { width: 200px; margin: 0 auto; }
         }
       `}</style>
     </section>
