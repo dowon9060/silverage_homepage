@@ -22,7 +22,6 @@ export default function Header() {
         <a href="#top" className="brand" aria-label="실세 홈으로">
           <img src="/silverlogo.png" alt="실세 로고" className="brand-logo" />
           <span className="brand-name">실세</span>
-          <span className="brand-sub">Silse</span>
         </a>
 
         <nav className={`nav ${open ? 'nav-open' : ''}`} aria-label="주요 메뉴">
@@ -91,13 +90,6 @@ export default function Header() {
           font-size: 22px;
           color: var(--text-strong);
           letter-spacing: -0.02em;
-        }
-        .brand-sub {
-          font-weight: 600;
-          font-size: 13px;
-          color: var(--brand-600);
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
         }
         .nav {
           display: flex;
