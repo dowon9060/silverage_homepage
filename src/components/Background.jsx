@@ -66,6 +66,19 @@ export default function Background() {
               <span className="badge green">실세가 도와드려요</span>
               <h3>가볍게, 그러나 꾸준하게 이어지는 연결</h3>
             </div>
+
+            <div className="meeting-img-wrap">
+              <img
+                src="/meeting.png"
+                alt="실세 앱으로 동네 모임에 참여하는 시니어들"
+                className="meeting-img"
+                loading="lazy"
+              />
+              <div className="meeting-img-caption">
+                실세와 함께라면 오늘도 새로운 만남이 시작됩니다.
+              </div>
+            </div>
+
             <div className="grid grid-3">
               {promises.map((it, i) => (
                 <article key={it.title} className="card mini accent">
@@ -140,8 +153,38 @@ export default function Background() {
           line-height: 1.65;
         }
 
+        .meeting-img-wrap {
+          position: relative;
+          margin-bottom: 20px;
+          border-radius: var(--r-xl);
+          overflow: hidden;
+          box-shadow: var(--shadow-md);
+        }
+        .meeting-img {
+          width: 100%;
+          height: 260px;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+          transition: transform .4s ease;
+        }
+        .meeting-img-wrap:hover .meeting-img {
+          transform: scale(1.03);
+        }
+        .meeting-img-caption {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          padding: 20px 24px 18px;
+          background: linear-gradient(to top, rgba(6, 78, 59, 0.82) 0%, transparent 100%);
+          color: #ffffff;
+          font-size: 15px;
+          font-weight: 600;
+          line-height: 1.5;
+        }
+
         @media (max-width: 900px) {
           .grid-3 { grid-template-columns: 1fr; }
+          .meeting-img { height: 200px; }
         }
       `}</style>
     </section>
