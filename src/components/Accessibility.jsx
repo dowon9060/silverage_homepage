@@ -69,8 +69,8 @@ export default function Accessibility() {
         }
         .a11y-card:hover {
           transform: translateY(-4px);
-          background: rgba(16, 185, 129, 0.08);
-          border-color: rgba(16, 185, 129, 0.4);
+          background: rgba(135, 206, 235, 0.1);
+          border-color: rgba(135, 206, 235, 0.45);
         }
         .a11y-no {
           font-size: 44px;

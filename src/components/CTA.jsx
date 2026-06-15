@@ -47,7 +47,7 @@ export default function CTA() {
         .cta-wrap {
           position: relative;
           overflow: hidden;
-          background: linear-gradient(135deg, #064E3B 0%, #0F172A 100%);
+          background: linear-gradient(135deg, #1A5F7D 0%, #0F172A 100%);
           border-radius: var(--r-2xl);
           padding: 80px 64px;
           display: grid;

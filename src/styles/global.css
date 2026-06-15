@@ -4,17 +4,17 @@
    ========================================= */
 
 :root {
-  /* Brand */
-  --brand-50: #ECFDF5;
-  --brand-100: #D1FAE5;
-  --brand-200: #A7F3D0;
-  --brand-300: #6EE7B7;
-  --brand-400: #34D399;
-  --brand-500: #10B981;
-  --brand-600: #059669;
-  --brand-700: #047857;
-  --brand-800: #065F46;
-  --brand-900: #064E3B;
+  /* Brand — Sky Blue (#87CEEB) */
+  --brand-50: #EFF9FD;
+  --brand-100: #D5F0FA;
+  --brand-200: #BAE5F6;
+  --brand-300: #9FD9F2;
+  --brand-400: #8BCFEE;
+  --brand-500: #87CEEB;
+  --brand-600: #5BB0D6;
+  --brand-700: #3A96BE;
+  --brand-800: #257A9E;
+  --brand-900: #1A5F7D;
 
   /* Accent */
   --orange-500: #F97316;
@@ -39,7 +39,7 @@
   /* Surface */
   --bg: #ffffff;
   --bg-soft: #F9FAFB;
-  --bg-mint: #ECFDF5;
+  --bg-mint: #EFF9FD;
   --surface: #ffffff;
   --border: #E5E7EB;
 
@@ -54,7 +54,7 @@
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
   --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.12);
-  --shadow-brand: 0 16px 40px rgba(16, 185, 129, 0.25);
+  --shadow-brand: 0 16px 40px rgba(135, 206, 235, 0.35);
 
   /* Radius */
   --r-sm: 8px;
@@ -140,7 +140,7 @@ p {
 }
 
 .section-dark {
-  background: linear-gradient(135deg, #0F172A 0%, #064E3B 100%);
+  background: linear-gradient(135deg, #0F172A 0%, #1A5F7D 100%);
   color: #E5E7EB;
 }
 
@@ -164,7 +164,7 @@ p {
 }
 
 .eyebrow.dark {
-  background: rgba(16, 185, 129, 0.15);
+  background: rgba(135, 206, 235, 0.18);
   color: var(--brand-300);
 }
 
@@ -203,12 +203,12 @@ p {
 .btn:active { transform: translateY(0); }
 
 .btn-primary {
-  background: var(--brand-500);
+  background: var(--brand-600);
   color: #fff;
   box-shadow: var(--shadow-brand);
 }
 .btn-primary:hover {
-  background: var(--brand-600);
+  background: var(--brand-700);
 }
 
 .btn-ghost {

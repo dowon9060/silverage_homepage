@@ -230,7 +230,7 @@ export default function Hero() {
 
         @keyframes pulse {
           0%, 100% { box-shadow: 0 0 0 4px var(--brand-100); }
-          50%      { box-shadow: 0 0 0 10px rgba(16,185,129,0.18); }
+          50%      { box-shadow: 0 0 0 10px rgba(135, 206, 235, 0.22); }
         }
 
         @media (max-width: 1024px) {
