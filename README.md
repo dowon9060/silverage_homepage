@@ -26,6 +26,19 @@ npm run build
 npm run preview
 ```
 
+## 페이지 구조
+
+| 경로 | 설명 |
+|---|---|
+| `/` | 홈 — 실세 소개, 기능 메뉴 카드 |
+| `/features/meeting` | 모임 |
+| `/features/community` | 커뮤니티 |
+| `/features/greeting` | 안부 전하기 |
+| `/features/friends` | 친구 관리 |
+| `/features/hobby` | 취미활동 |
+| `/features/group-buy` | 공동구매 |
+| `/accessibility` | 시니어 편의성 |
+
 ## 디렉터리 구조
 
 ```
@@ -40,6 +53,12 @@ npm run preview
 └── src/
     ├── main.jsx
     ├── App.jsx
+    ├── pages/
+    │   ├── HomePage.jsx
+    │   ├── FeaturePage.jsx
+    │   └── AccessibilityPage.jsx
+    ├── data/
+    │   └── features.js
     ├── styles/
     │   └── global.css
     └── components/

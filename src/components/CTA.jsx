@@ -1,6 +1,8 @@
-export default function CTA() {
+import { Link } from 'react-router-dom'
+
+export default function CTA({ anchorId = null }) {
   return (
-    <section className="section" id="cta">
+    <section className="section" id={anchorId || undefined}>
       <div className="container">
         <div className="cta-wrap">
           <div className="cta-bg" aria-hidden="true">
@@ -11,11 +13,11 @@ export default function CTA() {
           <div className="cta-content">
             <span className="eyebrow">앱 다운로드</span>
             <h2 className="cta-title">
-              지금 <span className="gradient-text">친구에게 안부</span>를 전해 보세요.
+              지금 <span className="gradient-text">동네 친구</span>를 만나 보세요.
             </h2>
             <p className="cta-desc">
-              오늘의 인사 한마디, 오늘의 모임 한 자리.<br />
-              실세에서 시니어의 따뜻한 일상이 시작됩니다.
+              취미를 함께하고, 커피 한잔 하며 이야기 나누는 하루.<br />
+              실세에서 새 친구와의 따뜻한 일상이 시작됩니다.
             </p>
             <div className="cta-actions">
               <a className="store-btn" href="#" aria-label="App Store에서 다운로드">
@@ -28,9 +30,9 @@ export default function CTA() {
               </a>
             </div>
 
-            <a className="cta-secondary" href="#features">
+            <Link to={{ pathname: '/', hash: '#features' }} className="cta-secondary">
               주요 기능 다시 보기
-            </a>
+            </Link>
           </div>
 
           <div className="cta-side" aria-hidden="true">

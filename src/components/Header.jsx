@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const navItems = [
-  { href: '#background', label: '실세 소개' },
-  { href: '#features', label: '주요 기능' },
-  { href: '#accessibility', label: '시니어 접근성' },
+  { to: '/', hash: '#background', label: '실세 소개' },
+  { to: '/', hash: '#features', label: '주요 기능' },
+  { to: '/accessibility', label: '시니어 편의성' },
 ]
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -16,31 +18,53 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const handleNavClick = (item, e) => {
+    setOpen(false)
+
+    if (item.hash) {
+      e.preventDefault()
+      navigate({ pathname: '/', hash: item.hash })
+      return
+    }
+
+    e.preventDefault()
+    window.scrollTo(0, 0)
+    navigate(item.to)
+  }
+
   return (
     <header className={`header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container header-inner">
-        <a href="#top" className="brand" aria-label="실세 홈으로">
+        <Link to="/" className="brand" aria-label="실세 홈으로" onClick={() => window.scrollTo(0, 0)}>
           <img src="/silverlogo.png" alt="실세 로고" className="brand-logo" />
           <span className="brand-name">실세</span>
-        </a>
+        </Link>
 
         <nav className={`nav ${open ? 'nav-open' : ''}`} aria-label="주요 메뉴">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
+            <Link
+              key={item.label}
+              to={item.hash ? { pathname: item.to, hash: item.hash } : item.to}
+              onClick={(e) => handleNavClick(item, e)}
               className="nav-link"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="header-actions">
-          <a href="#cta" className="btn btn-primary header-cta">
+          <Link
+            to={{ pathname: '/', hash: '#cta' }}
+            className="btn btn-primary header-cta"
+            onClick={(e) => {
+              setOpen(false)
+              e.preventDefault()
+              navigate({ pathname: '/', hash: '#cta' })
+            }}
+          >
             앱 다운로드
-          </a>
+          </Link>
           <button
             className="hamburger"
             aria-label="메뉴 열기"
@@ -79,6 +103,7 @@ export default function Header() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
+          text-decoration: none;
         }
         .brand-logo {
           width: 40px; height: 40px;
@@ -102,6 +127,7 @@ export default function Header() {
           font-size: 15px;
           color: var(--text-muted);
           transition: background .15s ease, color .15s ease;
+          text-decoration: none;
         }
         .nav-link:hover {
           color: var(--brand-700);
@@ -116,6 +142,7 @@ export default function Header() {
           padding: 12px 22px;
           min-height: 44px;
           font-size: 15px;
+          text-decoration: none;
         }
         .hamburger {
           display: none;

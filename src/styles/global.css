@@ -72,9 +72,15 @@
   --section-py: 120px;
 }
 
-* {
-  box-sizing: border-box;
+/* Anchor scroll offset for fixed header */
+#top,
+#background,
+#features,
+#accessibility-preview,
+#cta {
+  scroll-margin-top: 88px;
 }
+
 
 html, body {
   margin: 0;

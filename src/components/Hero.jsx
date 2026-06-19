@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Hero() {
   return (
     <section className="hero" id="top">
@@ -10,36 +12,36 @@ export default function Hero() {
 
       <div className="container hero-inner">
         <div className="hero-copy">
-          <span className="eyebrow">실버세대 생활 슈퍼앱</span>
+          <span className="eyebrow">시니어의 일상, 새 친구가 필요할 때</span>
           <h1 className="hero-title">
-            이제는 <span className="gradient-text">우리가 실세</span>
+            동네에 새 친구, <span className="gradient-text">함께하는 하루</span>
           </h1>
           <p className="hero-lead">
-            친구와 안부를 나누고, 좋아하는 주제로 모임을 찾고,<br />
-            동년배와 따뜻하게 소통하는 시니어 전용 앱.
+            새로운 친구를 만나고, 동네에서 취미를 함께 즐기거나<br />
+            커피 한잔·술 한잔 하며 소통하고 싶을 때. 실세가 가까운 동네 친구를 연결해 드립니다.
           </p>
 
           <div className="hero-cta">
-            <a href="#features" className="btn btn-primary">
+            <Link to={{ pathname: '/', hash: '#features' }} className="btn btn-primary">
               주요 기능 살펴보기
-            </a>
-            <a href="#cta" className="btn btn-ghost">
+            </Link>
+            <Link to={{ pathname: '/', hash: '#cta' }} className="btn btn-ghost">
               앱 다운로드
-            </a>
+            </Link>
           </div>
 
           <ul className="hero-points" aria-label="실세의 핵심 약속">
             <li>
-              <strong>친구 안부 전하기</strong>
-              <span>오랜만의 친구에게도 한 번의 터치로 따뜻한 인사를 전합니다.</span>
+              <strong>동네 새 친구 만들기</strong>
+              <span>가까운 이웃과 부담 없이 인사하고, 친구로 연결합니다.</span>
             </li>
             <li>
-              <strong>주제별 모임 찾기</strong>
-              <span>좋아하는 주제로 가까운 동네 모임을 편안하게 만납니다.</span>
+              <strong>함께하는 취미 모임</strong>
+              <span>산책, 바둑, 서예 등 좋아하는 활동으로 자연스럽게 만납니다.</span>
             </li>
             <li>
-              <strong>동년배 커뮤니티</strong>
-              <span>같은 또래와 일상과 정보를 나누는 안전한 공간.</span>
+              <strong>커피·식사로 가볍게 소통</strong>
+              <span>한잔하면서 편하게 이야기 나누는 동네 만남을 돕습니다.</span>
             </li>
           </ul>
         </div>
@@ -58,14 +60,14 @@ export default function Hero() {
           <div className="float-badge badge-1">
             <span className="dot" />
             <div>
-              <div className="b-title">음성으로 글쓰기</div>
-              <div className="b-sub">말하면 자동으로 입력</div>
+              <div className="b-title">동네 새 친구</div>
+              <div className="b-sub">산책 같이 하실래요?</div>
             </div>
           </div>
           <div className="float-badge badge-2">
             <div>
-              <div className="b-title">친구에게 안부 전하기</div>
-              <div className="b-sub">오랜만이에요, 잘 지내시죠?</div>
+              <div className="b-title">오늘의 동네 모임</div>
+              <div className="b-sub">커피 한잔 하며 안부 나누기</div>
             </div>
           </div>
         </div>

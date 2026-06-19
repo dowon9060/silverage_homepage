@@ -1,23 +1,22 @@
+import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header.jsx'
-import Hero from './components/Hero.jsx'
-import Background from './components/Background.jsx'
-import ValueProps from './components/ValueProps.jsx'
-import Features from './components/Features.jsx'
-import Accessibility from './components/Accessibility.jsx'
-import CTA from './components/CTA.jsx'
 import Footer from './components/Footer.jsx'
+import ScrollToHash from './components/ScrollToHash.jsx'
+import HomePage from './pages/HomePage.jsx'
+import FeaturePage from './pages/FeaturePage.jsx'
+import AccessibilityPage from './pages/AccessibilityPage.jsx'
 
 export default function App() {
   return (
     <>
       <Header />
+      <ScrollToHash />
       <main>
-        <Hero />
-        <Background />
-        <ValueProps />
-        <Features />
-        <Accessibility />
-        <CTA />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/features/:slug" element={<FeaturePage />} />
+          <Route path="/accessibility" element={<AccessibilityPage />} />
+        </Routes>
       </main>
       <Footer />
     </>

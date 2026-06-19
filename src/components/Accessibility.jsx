@@ -27,10 +27,10 @@ const a11yItems = [
 
 export default function Accessibility() {
   return (
-    <section className="section section-dark" id="accessibility">
+    <section className="section section-dark">
       <div className="container">
         <div className="a11y-head">
-          <span className="eyebrow dark">시니어 친화 접근성</span>
+          <span className="eyebrow dark">시니어 편의성</span>
           <h2 className="section-title">
             누구나 쉽고 편하게 <br />
             <span className="gradient-text">눈, 손, 귀에 다정한 앱</span>

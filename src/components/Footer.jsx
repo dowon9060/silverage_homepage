@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import { features } from '../data/features.js'
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -11,7 +14,7 @@ export default function Footer() {
             </div>
           </div>
           <p>
-            친구 안부 · 동네 모임 · 동년배 커뮤니티.<br />
+            동네 새 친구 · 취미 함께하기 · 커피 한잔 소통.<br />
             실버세대를 위한 따뜻한 일상 슈퍼앱.
           </p>
         </div>
@@ -19,20 +22,21 @@ export default function Footer() {
         <div className="foot-links">
           <div>
             <h5>실세 안내</h5>
-            <a href="#background">실세 소개</a>
-            <a href="#features">주요 기능</a>
-            <a href="#accessibility">시니어 접근성</a>
+            <Link to={{ pathname: '/', hash: '#background' }}>실세 소개</Link>
+            <Link to={{ pathname: '/', hash: '#features' }}>주요 기능</Link>
+            <Link to="/accessibility">시니어 편의성</Link>
           </div>
           <div>
-            <h5>앱 다운로드</h5>
-            <a href="#cta">App Store</a>
-            <a href="#cta">Google Play</a>
+            <h5>주요 기능</h5>
+            {features.map((f) => (
+              <Link key={f.slug} to={`/features/${f.slug}`}>{f.menuLabel}</Link>
+            ))}
           </div>
           <div>
             <h5>고객 지원</h5>
+            <Link to={{ pathname: '/', hash: '#cta' }}>앱 다운로드</Link>
             <a href="mailto:contact@silse.app">문의 이메일</a>
-            <a href="#cta">자주 묻는 질문</a>
-            <a href="#cta">이용 가이드</a>
+            <Link to={{ pathname: '/', hash: '#cta' }}>이용 가이드</Link>
           </div>
         </div>
       </div>
@@ -99,6 +103,7 @@ export default function Footer() {
           color: #94A3B8;
           font-size: 15px;
           transition: color .15s ease;
+          text-decoration: none;
         }
         .foot-links a:hover { color: var(--brand-300); }
 
