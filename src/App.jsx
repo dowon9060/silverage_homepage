@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollToHash from './components/ScrollToHash.jsx'
+import ScrollRevealInit from './components/ScrollRevealInit.jsx'
 import HomePage from './pages/HomePage.jsx'
 import FeaturePage from './pages/FeaturePage.jsx'
 import AccessibilityPage from './pages/AccessibilityPage.jsx'
@@ -11,6 +12,7 @@ export default function App() {
     <>
       <Header />
       <ScrollToHash />
+      <ScrollRevealInit />
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />

@@ -4,7 +4,7 @@ import { features } from '../data/features.js'
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container footer-inner">
+      <div className="container footer-inner scroll-reveal">
         <div className="foot-brand">
           <div className="brand">
             <img src="/silverlogo.png" alt="실세 로고" />

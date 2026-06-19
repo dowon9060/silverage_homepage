@@ -6,7 +6,7 @@ export default function AccessibilityPage() {
   return (
     <>
       <section className="a11y-page-hero section">
-        <div className="container">
+        <div className="container hero-enter">
           <Link to="/" className="a11y-back">← 홈으로</Link>
           <span className="eyebrow">시니어 편의성</span>
           <h1 className="a11y-page-title">
@@ -25,7 +25,7 @@ export default function AccessibilityPage() {
 
       <section className="section section-soft">
         <div className="container">
-          <div className="a11y-extra">
+          <div className="a11y-extra scroll-reveal">
             <h2 className="section-title">
               편의성은 <span className="gradient-text">모든 기능의 기본</span>입니다
             </h2>
@@ -33,7 +33,7 @@ export default function AccessibilityPage() {
               모임, 커뮤니티, 안부 전하기, 친구 관리, 취미활동, 공동구매까지.
               실세의 모든 기능은 큰 글자, 큰 버튼, 음성 지원을 바탕으로 설계되었습니다.
             </p>
-            <ul className="a11y-principles">
+            <ul className="a11y-principles scroll-reveal-stagger">
               <li>
                 <strong>읽기 편하게</strong>
                 <span>큰 글자와 고대비로 화면을 또렷하게</span>

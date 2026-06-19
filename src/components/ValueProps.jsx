@@ -23,7 +23,7 @@ export default function ValueProps() {
   return (
     <section className="section section-mint">
       <div className="container">
-        <div className="vp-head">
+        <div className="vp-head scroll-reveal">
           <span className="eyebrow">실세가 약속하는 것</span>
           <h2 className="section-title">
             동네 친구를 만나는 <br />
@@ -35,7 +35,7 @@ export default function ValueProps() {
           </p>
         </div>
 
-        <div className="vp-grid">
+        <div className="vp-grid scroll-reveal-stagger">
           {items.map((it) => (
             <article key={it.no} className="vp-card">
               <span className="vp-no">{it.no}</span>

@@ -5,7 +5,7 @@ export default function FeatureMenu() {
   return (
     <section className="section" id="features">
       <div className="container">
-        <div className="fm-head">
+        <div className="fm-head scroll-reveal">
           <span className="eyebrow">주요 기능</span>
           <h2 className="section-title">
             실세의 모든 기능을 <br />
@@ -17,7 +17,7 @@ export default function FeatureMenu() {
           </p>
         </div>
 
-        <div className="fm-grid">
+        <div className="fm-grid scroll-reveal-stagger">
           {features.map((f, i) => (
             <Link
               key={f.slug}

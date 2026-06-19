@@ -5,7 +5,7 @@ export default function FeatureDetailLayout({ feature }) {
   return (
     <>
       <section className="fd-hero section">
-        <div className="container">
+        <div className="container scroll-reveal">
           <Link to={{ pathname: '/', hash: '#features' }} className="fd-back">← 주요 기능 목록</Link>
           <span className="eyebrow">{feature.tag}</span>
           <h1 className="fd-title">{feature.title}</h1>
@@ -16,7 +16,7 @@ export default function FeatureDetailLayout({ feature }) {
       <section className="section">
         <div className="container">
           <article className={`fd-row ${feature.align}`}>
-            <div className="fd-visual">
+            <div className="fd-visual scroll-reveal scroll-reveal-left">
               <div className="fd-glow" aria-hidden="true" />
               <div className="phone">
                 <div className="phone-screen">
@@ -24,7 +24,7 @@ export default function FeatureDetailLayout({ feature }) {
                 </div>
               </div>
             </div>
-            <div className="fd-copy">
+            <div className="fd-copy scroll-reveal scroll-reveal-right">
               <h2 className="fd-sub">{feature.sub}</h2>
               <p className="fd-desc">{feature.desc}</p>
             </div>
@@ -34,13 +34,13 @@ export default function FeatureDetailLayout({ feature }) {
 
       <section className="section section-soft">
         <div className="container">
-          <div className="fd-block-head">
+          <div className="fd-block-head scroll-reveal">
             <span className="eyebrow">실세가 추구하는 방향</span>
             <h2 className="section-title">
               <span className="gradient-text">{feature.menuLabel}</span>가 지향하는 것
             </h2>
           </div>
-          <div className="fd-pursuit-grid">
+          <div className="fd-pursuit-grid scroll-reveal-stagger">
             {feature.pursuits.map((p, i) => (
               <article key={p.title} className="card mini accent">
                 <span className="fd-p-num">0{i + 1}</span>
@@ -54,7 +54,7 @@ export default function FeatureDetailLayout({ feature }) {
 
       <section className="section">
         <div className="container">
-          <div className="fd-block-head">
+          <div className="fd-block-head scroll-reveal">
             <span className="eyebrow">시니어 편의성</span>
             <h2 className="section-title">
               더 편안하게 쓰실 수 있도록 <br />
@@ -64,7 +64,7 @@ export default function FeatureDetailLayout({ feature }) {
               복잡한 조작 없이, 눈과 손에 편안한 화면으로 일상을 이어 갈 수 있습니다.
             </p>
           </div>
-          <ul className="fd-convenience">
+          <ul className="fd-convenience scroll-reveal-stagger">
             {feature.convenience.map((c) => (
               <li key={c.k}>
                 <strong>{c.k}</strong>
@@ -72,7 +72,7 @@ export default function FeatureDetailLayout({ feature }) {
               </li>
             ))}
           </ul>
-          <p className="fd-a11y-link">
+          <p className="fd-a11y-link scroll-reveal scroll-reveal-delay-2">
             더 많은 편의 기능은{' '}
             <Link to="/accessibility">시니어 편의성 페이지</Link>에서 확인하세요.
           </p>

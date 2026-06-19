@@ -29,7 +29,7 @@ export default function Accessibility() {
   return (
     <section className="section section-dark">
       <div className="container">
-        <div className="a11y-head">
+        <div className="a11y-head scroll-reveal">
           <span className="eyebrow dark">시니어 편의성</span>
           <h2 className="section-title">
             누구나 쉽고 편하게 <br />
@@ -41,7 +41,7 @@ export default function Accessibility() {
           </p>
         </div>
 
-        <div className="a11y-grid">
+        <div className="a11y-grid scroll-reveal-stagger">
           {a11yItems.map((it, i) => (
             <article key={it.title} className="a11y-card">
               <div className="a11y-no">0{i + 1}</div>

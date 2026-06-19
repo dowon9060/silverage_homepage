@@ -5,7 +5,7 @@ export default function AccessibilityPreview() {
     <section className="section section-mint" id="accessibility-preview">
       <div className="container">
         <div className="ap-inner">
-          <div className="ap-copy">
+          <div className="ap-copy scroll-reveal scroll-reveal-left">
             <span className="eyebrow">시니어 편의성</span>
             <h2 className="section-title">
               모든 기능에 담긴 <br />
@@ -19,7 +19,7 @@ export default function AccessibilityPreview() {
               편의성 기능 자세히 보기
             </Link>
           </div>
-          <ul className="ap-list">
+          <ul className="ap-list scroll-reveal-stagger">
             <li>음성으로 글쓰기 · 읽어주기</li>
             <li>큰 글자 · 고대비 모드</li>
             <li>넉넉한 터치 영역</li>

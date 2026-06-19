@@ -4,7 +4,7 @@ export default function CTA({ anchorId = null }) {
   return (
     <section className="section" id={anchorId || undefined}>
       <div className="container">
-        <div className="cta-wrap">
+        <div className="cta-wrap scroll-reveal scroll-reveal-scale">
           <div className="cta-bg" aria-hidden="true">
             <div className="cta-blob a" />
             <div className="cta-blob b" />

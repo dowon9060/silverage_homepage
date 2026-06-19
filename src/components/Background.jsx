@@ -32,7 +32,7 @@ export default function Background() {
   return (
     <section className="section" id="background">
       <div className="container">
-        <div className="bg-head">
+        <div className="bg-head scroll-reveal">
           <span className="eyebrow">왜 실세인가요?</span>
           <h2 className="section-title">
             동네 친구 한 명이 <br />
@@ -46,12 +46,12 @@ export default function Background() {
 
         <div className="bg-columns">
           {/* 시니어의 일상 고민 */}
-          <div className="bg-col">
+          <div className="bg-col scroll-reveal scroll-reveal-delay-1">
             <div className="col-head">
               <span className="badge red">시니어의 일상 고민</span>
               <h3>혹시 이런 마음, 있으셨나요?</h3>
             </div>
-            <div className="grid grid-3">
+            <div className="grid grid-3 scroll-reveal-stagger">
               {concerns.map((it, i) => (
                 <article key={it.title} className="card mini concern">
                   <span className="mini-num">0{i + 1}</span>
@@ -63,7 +63,7 @@ export default function Background() {
           </div>
 
           {/* 실세가 도와드려요 */}
-          <div className="bg-col">
+          <div className="bg-col scroll-reveal scroll-reveal-delay-2">
             <div className="col-head">
               <span className="badge green">실세가 도와드려요</span>
               <h3>가볍게, 그러나 꾸준하게 이어지는 동네 만남</h3>
@@ -72,7 +72,7 @@ export default function Background() {
             {/* 폰 + 카드 좌우 레이아웃 */}
             <div className="promise-layout">
               {/* 폰 목업 */}
-              <div className="promise-phone-wrap">
+              <div className="promise-phone-wrap scroll-reveal scroll-reveal-left">
                 <div className="bg-glow" aria-hidden="true" />
                 <div className="phone">
                   <div className="phone-screen">
@@ -86,7 +86,7 @@ export default function Background() {
               </div>
 
               {/* 카드 목록 */}
-              <div className="promise-cards">
+              <div className="promise-cards scroll-reveal-stagger">
                 {promises.map((it, i) => (
                   <article key={it.title} className="card mini accent">
                     <span className="mini-num accent">0{i + 1}</span>

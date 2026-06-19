@@ -12,16 +12,16 @@ export default function Hero() {
 
       <div className="container hero-inner">
         <div className="hero-copy">
-          <span className="eyebrow">시니어의 일상, 새 친구가 필요할 때</span>
-          <h1 className="hero-title">
+          <span className="eyebrow hero-enter">시니어의 일상, 새 친구가 필요할 때</span>
+          <h1 className="hero-title hero-enter hero-enter-delay-1">
             동네에 새 친구, <span className="gradient-text">함께하는 하루</span>
           </h1>
-          <p className="hero-lead">
+          <p className="hero-lead hero-enter hero-enter-delay-2">
             새로운 친구를 만나고, 동네에서 취미를 함께 즐기거나<br />
             커피 한잔·술 한잔 하며 소통하고 싶을 때. 실세가 가까운 동네 친구를 연결해 드립니다.
           </p>
 
-          <div className="hero-cta">
+          <div className="hero-cta hero-enter hero-enter-delay-3">
             <Link to={{ pathname: '/', hash: '#features' }} className="btn btn-primary">
               주요 기능 살펴보기
             </Link>
@@ -30,7 +30,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <ul className="hero-points" aria-label="실세의 핵심 약속">
+          <ul className="hero-points hero-enter hero-enter-delay-4" aria-label="실세의 핵심 약속">
             <li>
               <strong>동네 새 친구 만들기</strong>
               <span>가까운 이웃과 부담 없이 인사하고, 친구로 연결합니다.</span>
@@ -46,7 +46,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="hero-visual" aria-hidden="true">
+        <div className="hero-visual hero-enter hero-enter-delay-2" aria-hidden="true">
           <div className="phone phone-back">
             <div className="phone-screen">
               <img src="/community.png" alt="" />
