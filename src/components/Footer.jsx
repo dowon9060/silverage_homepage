@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container footer-inner scroll-reveal">
         <div className="foot-brand">
           <div className="brand">
-            <img src="/silverlogo.png" alt="실세 로고" />
+            <img src="/silverage_logo.png" alt="실세 로고" />
             <div>
               <strong>실세 (Silse)</strong>
               <span>이제는 우리가 실세</span>

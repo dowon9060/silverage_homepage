@@ -36,7 +36,7 @@ export default function Header() {
     <header className={`header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container header-inner">
         <Link to="/" className="brand" aria-label="실세 홈으로" onClick={() => window.scrollTo(0, 0)}>
-          <img src="/silverlogo.png" alt="실세 로고" className="brand-logo" />
+          <img src="/silverage_logo.png" alt="실세 로고" className="brand-logo" />
           <span className="brand-name">실세</span>
         </Link>
 
