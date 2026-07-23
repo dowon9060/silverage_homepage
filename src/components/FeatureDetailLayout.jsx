@@ -4,19 +4,14 @@ import CTA from './CTA.jsx'
 export default function FeatureDetailLayout({ feature }) {
   return (
     <>
-      <section className="fd-hero section">
-        <div className="container scroll-reveal">
-          <Link to={{ pathname: '/', hash: '#features' }} className="fd-back">← 주요 기능 목록</Link>
-          <span className="eyebrow">{feature.tag}</span>
-          <h1 className="fd-title">{feature.title}</h1>
-          <p className="fd-lead">{feature.lead}</p>
-        </div>
-      </section>
-
-      <section className="section fd-showcase">
+      <section className="section fd-intro">
         <div className="container">
-          <article className={`fd-row ${feature.align}`}>
-            <div className="fd-copy scroll-reveal scroll-reveal-left">
+          <article className={`fd-intro-grid ${feature.align}`}>
+            <div className="fd-intro-copy scroll-reveal">
+              <Link to={{ pathname: '/', hash: '#features' }} className="fd-back">← 주요 기능 목록</Link>
+              <span className="eyebrow">{feature.tag}</span>
+              <h1 className="fd-title">{feature.title}</h1>
+              <p className="fd-lead">{feature.lead}</p>
               <h2 className="fd-sub">{feature.sub}</h2>
               <p className="fd-desc">{feature.desc}</p>
             </div>
@@ -32,6 +27,8 @@ export default function FeatureDetailLayout({ feature }) {
                       muted
                       playsInline
                       aria-label={`${feature.title} 앱 화면`}
+                      onLoadedMetadata={(e) => { e.currentTarget.playbackRate = 2 }}
+                      onPlay={(e) => { e.currentTarget.playbackRate = 2 }}
                     />
                   ) : (
                     <img src={feature.img} alt={`${feature.title} 앱 화면`} />
@@ -93,66 +90,77 @@ export default function FeatureDetailLayout({ feature }) {
       <CTA />
 
       <style>{`
-        .fd-hero {
-          padding-top: 140px;
-          padding-bottom: 16px;
+        .fd-intro {
+          padding-top: 112px;
+          padding-bottom: 56px;
+        }
+        .fd-intro-grid {
+          display: grid;
+          grid-template-columns: 1fr minmax(220px, 260px);
+          align-items: start;
+          gap: 40px;
+          max-width: 980px;
+        }
+        .fd-intro-grid:not(.left) {
+          grid-template-columns: minmax(220px, 260px) 1fr;
+        }
+        .fd-intro-grid:not(.left) .fd-visual { order: 1; }
+        .fd-intro-grid:not(.left) .fd-intro-copy { order: 2; }
+
+        .fd-intro-copy {
+          max-width: 520px;
         }
         .fd-back {
           display: inline-block;
-          margin-bottom: 20px;
+          margin-bottom: 12px;
           font-weight: 600;
           font-size: 15px;
           color: var(--text-muted);
         }
         .fd-back:hover { color: var(--brand-700); }
         .fd-title {
-          font-size: clamp(32px, 4vw, 48px);
+          font-size: clamp(28px, 3.6vw, 42px);
           font-weight: 900;
-          margin-top: 12px;
+          margin-top: 8px;
           letter-spacing: -0.03em;
+          line-height: 1.15;
         }
         .fd-lead {
-          margin-top: 16px;
-          font-size: 18px;
+          margin-top: 12px;
+          font-size: 17px;
           color: var(--text-muted);
-          max-width: 640px;
-          line-height: 1.75;
+          line-height: 1.65;
         }
-
-        .fd-showcase {
-          padding-top: 32px;
-          padding-bottom: 80px;
+        .fd-sub {
+          margin-top: 20px;
+          font-size: 20px;
+          font-weight: 800;
+          color: var(--brand-700);
+          margin-bottom: 8px;
+          line-height: 1.35;
         }
-
-        .fd-row {
-          display: grid;
-          grid-template-columns: 1fr minmax(240px, 280px);
-          align-items: center;
-          gap: 48px;
-          max-width: 960px;
+        .fd-desc {
+          font-size: 16px;
+          color: var(--text-muted);
+          line-height: 1.65;
         }
-        .fd-row:not(.left) {
-          grid-template-columns: minmax(240px, 280px) 1fr;
-        }
-        .fd-row:not(.left) .fd-visual { order: 1; }
-        .fd-row:not(.left) .fd-copy { order: 2; }
 
         .fd-visual {
           position: relative;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           justify-content: center;
         }
         .fd-glow {
           position: absolute;
-          inset: 5%;
+          inset: 0 5% 5%;
           background: radial-gradient(circle, var(--brand-100), transparent 70%);
           filter: blur(40px);
         }
         .fd-visual .phone {
           position: relative;
           z-index: 1;
-          width: 280px;
+          width: 260px;
         }
         .fd-visual .phone-screen {
           background: #0F172A;
@@ -164,28 +172,6 @@ export default function FeatureDetailLayout({ feature }) {
           object-fit: cover;
           object-position: top center;
           display: block;
-        }
-
-        .fd-copy {
-          max-width: 480px;
-        }
-        .fd-row.left .fd-copy {
-          justify-self: start;
-        }
-        .fd-row:not(.left) .fd-copy {
-          justify-self: start;
-        }
-
-        .fd-sub {
-          font-size: 22px;
-          font-weight: 800;
-          color: var(--brand-700);
-          margin-bottom: 12px;
-        }
-        .fd-desc {
-          font-size: 17px;
-          color: var(--text-muted);
-          line-height: 1.7;
         }
 
         .fd-block-head {
@@ -259,19 +245,23 @@ export default function FeatureDetailLayout({ feature }) {
         }
 
         @media (max-width: 900px) {
-          .fd-showcase { padding-top: 24px; padding-bottom: 64px; }
-          .fd-row,
-          .fd-row.left {
+          .fd-intro {
+            padding-top: 100px;
+            padding-bottom: 48px;
+          }
+          .fd-intro-grid,
+          .fd-intro-grid:not(.left) {
             grid-template-columns: 1fr;
-            gap: 28px;
+            gap: 24px;
             max-width: none;
           }
-          .fd-row.left .fd-copy,
-          .fd-row:not(.left) .fd-copy { margin-left: 0; justify-self: stretch; }
-          .fd-row:not(.left) .fd-visual,
-          .fd-row.left .fd-visual { order: 0; }
-          .fd-visual .phone { width: 240px; margin: 0 auto; }
-          .fd-copy { max-width: none; }
+          .fd-intro-grid:not(.left) .fd-visual,
+          .fd-intro-grid.left .fd-visual { order: 0; }
+          .fd-intro-grid:not(.left) .fd-intro-copy,
+          .fd-intro-grid.left .fd-intro-copy { order: 0; }
+          .fd-intro-copy { max-width: none; }
+          .fd-visual .phone { width: 220px; margin: 0 auto; }
+          .fd-sub { margin-top: 16px; }
           .fd-pursuit-grid { grid-template-columns: 1fr; }
           .fd-convenience { grid-template-columns: 1fr; }
         }
