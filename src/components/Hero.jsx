@@ -47,14 +47,9 @@ export default function Hero() {
         </div>
 
         <div className="hero-visual hero-enter hero-enter-delay-2" aria-hidden="true">
-          <div className="phone phone-back">
-            <div className="phone-screen">
-              <img src="/community.png" alt="" />
-            </div>
-          </div>
           <div className="phone phone-front">
             <div className="phone-screen">
-              <img src="/home.png" alt="" />
+              <img src="/home.png" alt="실세 앱 홈 화면" />
             </div>
           </div>
           <div className="float-badge badge-1">
@@ -179,21 +174,24 @@ export default function Hero() {
 
         .hero-visual {
           position: relative;
-          height: 620px;
+          height: 560px;
           display: flex;
           align-items: center;
           justify-content: center;
         }
         .hero-visual .phone {
-          position: absolute;
-        }
-        .phone-back {
-          transform: translate(80px, 20px) rotate(8deg);
-          opacity: 0.95;
-        }
-        .phone-front {
-          transform: translate(-60px, -10px) rotate(-4deg);
+          position: relative;
           z-index: 2;
+          width: 280px;
+        }
+        .hero-visual .phone-screen {
+          background: #0F172A;
+        }
+        .hero-visual .phone-screen img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top center;
         }
 
         .float-badge {
@@ -237,14 +235,12 @@ export default function Hero() {
 
         @media (max-width: 1024px) {
           .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-          .hero-visual { height: 560px; }
+          .hero-visual { height: 480px; }
         }
         @media (max-width: 640px) {
           .hero { padding-top: 120px; }
-          .hero-visual { height: 480px; }
-          .phone { width: 220px; }
-          .phone-back { transform: translate(60px, 20px) rotate(8deg); }
-          .phone-front { transform: translate(-50px, -10px) rotate(-4deg); }
+          .hero-visual { height: 420px; }
+          .hero-visual .phone { width: 220px; }
           .badge-1, .badge-2 { display: none; }
         }
       `}</style>
