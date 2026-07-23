@@ -13,20 +13,31 @@ export default function FeatureDetailLayout({ feature }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section fd-showcase">
         <div className="container">
           <article className={`fd-row ${feature.align}`}>
-            <div className="fd-visual scroll-reveal scroll-reveal-left">
+            <div className="fd-copy scroll-reveal scroll-reveal-left">
+              <h2 className="fd-sub">{feature.sub}</h2>
+              <p className="fd-desc">{feature.desc}</p>
+            </div>
+            <div className="fd-visual scroll-reveal scroll-reveal-right">
               <div className="fd-glow" aria-hidden="true" />
               <div className="phone">
                 <div className="phone-screen">
-                  <img src={feature.img} alt={`${feature.title} 앱 화면`} />
+                  {feature.video ? (
+                    <video
+                      src={feature.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      aria-label={`${feature.title} 앱 화면`}
+                    />
+                  ) : (
+                    <img src={feature.img} alt={`${feature.title} 앱 화면`} />
+                  )}
                 </div>
               </div>
-            </div>
-            <div className="fd-copy scroll-reveal scroll-reveal-right">
-              <h2 className="fd-sub">{feature.sub}</h2>
-              <p className="fd-desc">{feature.desc}</p>
             </div>
           </article>
         </div>
@@ -84,7 +95,7 @@ export default function FeatureDetailLayout({ feature }) {
       <style>{`
         .fd-hero {
           padding-top: 140px;
-          padding-bottom: 48px;
+          padding-bottom: 16px;
         }
         .fd-back {
           display: inline-block;
@@ -101,50 +112,80 @@ export default function FeatureDetailLayout({ feature }) {
           letter-spacing: -0.03em;
         }
         .fd-lead {
-          margin-top: 20px;
+          margin-top: 16px;
           font-size: 18px;
           color: var(--text-muted);
-          max-width: 720px;
+          max-width: 640px;
           line-height: 1.75;
+        }
+
+        .fd-showcase {
+          padding-top: 32px;
+          padding-bottom: 80px;
         }
 
         .fd-row {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr minmax(240px, 280px);
           align-items: center;
-          gap: 80px;
+          gap: 48px;
+          max-width: 960px;
         }
-        .fd-row.left .fd-visual { order: 2; }
+        .fd-row:not(.left) {
+          grid-template-columns: minmax(240px, 280px) 1fr;
+        }
+        .fd-row:not(.left) .fd-visual { order: 1; }
+        .fd-row:not(.left) .fd-copy { order: 2; }
 
         .fd-visual {
           position: relative;
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: 520px;
         }
         .fd-glow {
           position: absolute;
-          inset: 10%;
+          inset: 5%;
           background: radial-gradient(circle, var(--brand-100), transparent 70%);
           filter: blur(40px);
         }
         .fd-visual .phone {
           position: relative;
           z-index: 1;
-          width: 300px;
+          width: 280px;
+        }
+        .fd-visual .phone-screen {
+          background: #0F172A;
+        }
+        .fd-visual .phone-screen video,
+        .fd-visual .phone-screen img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top center;
+          display: block;
+        }
+
+        .fd-copy {
+          max-width: 480px;
+        }
+        .fd-row.left .fd-copy {
+          justify-self: start;
+        }
+        .fd-row:not(.left) .fd-copy {
+          justify-self: start;
         }
 
         .fd-sub {
           font-size: 22px;
           font-weight: 800;
           color: var(--brand-700);
-          margin-bottom: 16px;
+          margin-bottom: 12px;
         }
         .fd-desc {
           font-size: 17px;
           color: var(--text-muted);
-          line-height: 1.75;
+          line-height: 1.7;
         }
 
         .fd-block-head {
@@ -218,10 +259,19 @@ export default function FeatureDetailLayout({ feature }) {
         }
 
         @media (max-width: 900px) {
+          .fd-showcase { padding-top: 24px; padding-bottom: 64px; }
           .fd-row,
-          .fd-row.left { grid-template-columns: 1fr; gap: 32px; }
+          .fd-row.left {
+            grid-template-columns: 1fr;
+            gap: 28px;
+            max-width: none;
+          }
+          .fd-row.left .fd-copy,
+          .fd-row:not(.left) .fd-copy { margin-left: 0; justify-self: stretch; }
+          .fd-row:not(.left) .fd-visual,
           .fd-row.left .fd-visual { order: 0; }
-          .fd-visual { min-height: 440px; }
+          .fd-visual .phone { width: 240px; margin: 0 auto; }
+          .fd-copy { max-width: none; }
           .fd-pursuit-grid { grid-template-columns: 1fr; }
           .fd-convenience { grid-template-columns: 1fr; }
         }

@@ -8,6 +8,7 @@ export const features = [
     lead: '산책, 서예, 바둑, 요리, 카페 모임 등 동네에서 함께할 친구를 찾고 편안하게 참여하세요.',
     desc: '지도와 카테고리로 내 주변 모임을 한눈에 확인합니다. 모집 인원, 거리, 시간을 또렷하게 보여 주고, 큰 버튼으로 참여와 대기 신청까지 간단하게 할 수 있습니다.',
     img: '/meeting.png',
+    video: '/meetup-create.webm',
     align: 'left',
     pursuits: [
       {
